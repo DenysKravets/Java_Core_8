@@ -4,8 +4,24 @@ import java.util.Scanner;
 
 public class Main 
 {
-
-	public static void checkIfExists()
+	//Added new function
+	//Checks whether input string contains a number
+	public static boolean containsNumber(String name)
+	{
+		boolean state = false;
+		
+		for(int i = 0; i <= 10; i++)
+		{
+			if(name.contains(Integer.toString(i)))
+			{
+				state = true;
+			}
+		}
+		
+		return state;
+	}
+	//First change for lesson 9
+	public static void checkIfExists() throws WrongInputConsoleParametersException
 	{
 		System.out.println("\nEnter the month to see whether it exist ");
 		
@@ -13,6 +29,12 @@ public class Main
 		
 		String name = scan.next();
 		name = name.toUpperCase();
+		
+		//Added this exception
+		if(containsNumber(name))
+		{
+			throw new WrongInputConsoleParametersException("You have entered prohibited character in your input");
+		}
 				
 		boolean flag = false;
 		for(Months month : Months.values())
@@ -148,8 +170,8 @@ public class Main
 			}
 		}
 	}
-	
-	public static void isOdd()
+	//Second change for lesson 9 
+	public static void isOdd() throws WrongInputConsoleParametersException
 	{
 		System.out.println("\nEnter the month to see whether it's number of days is odd");
 		
@@ -158,6 +180,12 @@ public class Main
 		String name = scan.next();
 		scan.close();
 		name = name.toUpperCase();
+		
+		//Added this exception
+		if(containsNumber(name))
+		{
+			throw new WrongInputConsoleParametersException("You have entered prohibited character in your input");
+		}
 				
 		if(Months.valueOf(name).getDays() % 2 != 0)
 		{
@@ -169,7 +197,7 @@ public class Main
 		}
 	}
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws WrongInputConsoleParametersException 
 	{
 		
 		String name = "august";
