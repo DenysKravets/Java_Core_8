@@ -5,7 +5,13 @@ import java.util.Scanner;
 public class Main 
 {
 	//Added new function
-	//Checks whether input string contains a number
+	/**
+	 * Checks whether input string contains a string.
+	 * 
+	 * @param name pass any string you want to check
+	 * 
+	 * @return returns boolean value
+	 * */
 	public static boolean containsNumber(String name)
 	{
 		boolean state = false;
